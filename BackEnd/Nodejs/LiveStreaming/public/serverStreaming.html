@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Server Streaming</title>
+    <style>
+      html {
+        box-sizing: border-box;
+        font-size: 16px;
+      }
+
+      * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        background-color: rgb(8, 8, 8);
+        display: grid;
+        place-items: center;
+        min-height: 100vh;
+      }
+
+      #canvas {
+        width: 80%;
+        height: 80%;
+        border: 1px solid blueviolet;
+        border-radius: 8px;
+      }
+
+      #video {
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <video autoplay src="" id="video"></video>
+    <canvas id="canvas"></canvas>
+    <script src="/socket.io/socket.io.js"></script>
+    <script>
+      const d = document,
+        w = window,
+        n = navigator;
+
+      d.addEventListener("DOMContentLoaded", (e) => {
+        const clientIo = io();
+        const canvas = d.getElementById("canvas");
+        const context = canvas.getContext("2d");
+        const video = d.getElementById("video");
+        let startCamera = false;
+
+        const playVideo = ((cb)=>w.requestAnimationFrame)()
+
+        const streaming = (context, canvas, video) => {
+          const outputStreaming = canvas.toDataURL("image/jpeg", 0.2);
+          context.drawImage(video, 0, 0);
+          if (startCamera) {
+            clientIo.emit("streaming", outputStreaming);
+          }
+          playVideo(() => {
+            streaming(context, canvas, video);
+          });
+        };
+
+        const streamingVideo = () => {
+          n.getUserMedia(
+            { audio: false, video: true },
+            (stream) => {
+              startCamera = true;
+              video.srcObject = stream;
+              streaming(context, canvas, video);
+            },
+            (erro) => {
+              alert("Cannot get user media");
+            }
+          );
+        };
+
+        streamingVideo();
+      });
+    </script>
+  </body>
+</html>

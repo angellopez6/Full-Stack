@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Raleway&family=Roboto:wght@100&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="webclient.css" />
+    <link rel="icon" href="../assets/images/webRTC.png" />
+    <title>ACORDE - webClient</title>
+  </head>
+  <body>
+    <!-- <button id="enviarSMS">Click</button> -->
+    <main>
+      <article>
+        <img
+          class="videobg"
+          src="../assets/images/videobg.webp"
+          alt="Conference logo"
+        />
+        <img class="loader none" src="../assets/images/loader.gif" alt="Loading" />
+        <video class="none" id="video" autoplay></video>
+      </article>
+      <aside>
+        <img src="../assets/images/webRTC.png" alt="WebRTC logo" />
+        <h1>Bienvenido al cliente web de RDP</h1>
+        <p>
+          Con el cliente web de escritorio remoto ( <i>RDP</i> ) usted puede
+          realizar llamadas con conexión punto a punto ( <i>peer-to-peer</i> ) y
+          establecer una comunicación mediante un servidor <i>TURN</i> (
+          <i>Traversal Using Relay NAT</i> ) proveído gratuitamente por Google.
+        </p>
+        <h4>Ingrese el id del cliente</h4>
+        <input type="text" placeholder="Cliente ID" id="clientId" value="" />
+        <button id="connect" disabled>Conectar</button>
+        <span id="validate"></span>
+        <small
+          >El id del cliente es indispensable para llamar al par remoto.</small
+        >
+        <span class="peerId"></span>
+      </aside>
+    </main>
+    <footer>
+      <p>Copyrights - Acordeinternational 2022 &copy;</p>
+      <img
+        src="../assets/images/acorde_software.jpg"
+        alt="Acordeinternational logo"
+      />
+    </footer>
+    <script src="../assets/js/peerjs.min.js"></script>
+    <script src="index2.js" type="module"></script>
+  </body>
+</html>

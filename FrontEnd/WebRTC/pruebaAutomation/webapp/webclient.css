@@ -1,0 +1,146 @@
+html {
+  font-size: 16px;
+  box-sizing: border-box;
+  font-family: "Roboto", sans-serif;
+  font-weight: bold;
+  color: #222;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  flex-flow: column nowrap;
+  overflow: hidden;
+}
+
+body > footer {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  justify-content: space-around;
+  font-size: 14px;
+  padding: 1rem;
+  font-style: italic;
+}
+
+body > footer > img {
+  display: block;
+  width: 50px;
+  height: auto;
+}
+
+main {
+  flex: 1 1 auto;
+  display: grid;
+  grid-template-columns: 1fr 400px;
+  border-bottom: 1px solid rgb(189, 189, 189);
+}
+
+main > article {
+  border-right: 1px solid rgb(189, 189, 189);
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+}
+
+main > article > video {
+  position: absolute;
+  width: 90%;
+  height: 90%;
+  object-fit: contain;
+  align-self: center;
+  border: 1px;
+  border-radius: 8px;
+}
+
+main > aside {
+  padding: .5rem;
+}
+
+main > aside > h1 {
+  font-weight: bolder;
+  font-size: 24px;
+}
+
+main > aside > img {
+  display: block;
+  width: 150px;
+  height: auto;
+  margin: 1rem auto;
+}
+
+main > aside > h4 {
+  text-align: center;
+}
+
+main > aside > p {
+  font-size: 14px;
+  line-height: 18px;
+}
+
+#clientId { 
+  display: block;
+  margin: 0 auto;
+  border: 0;
+  outline: none;
+  border-bottom: 1px solid rgb(189, 189, 189);
+  color: rgb(88, 88, 88);
+}
+
+#connect { 
+  display: block;
+    outline: none;
+    margin: 1rem auto;
+  border: 1px solid royalblue;
+  color: royalblue;
+  background-color: #ffff;
+  border-radius: 8px;
+  cursor: pointer;
+  padding: .5rem 1rem;
+}
+
+#connect:disabled {
+  color: #dc3545;
+  border-color: #dc3545;
+  cursor: not-allowed;
+}
+
+main > aside > small {
+  display: block;
+  text-align: center;
+}
+
+#validate {
+  display: block;
+  color: #dc3545 !important;
+  text-align: center;
+  margin: 0 auto;
+}
+
+.none {
+  display: none;
+}
+
+.peerId { 
+  display: block;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.loader {
+  width: 50%;
+  height: auto;
+  align-self: center;
+}
+
+.videobg {
+  width: 60%;
+}

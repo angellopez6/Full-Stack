@@ -1,0 +1,12 @@
+import React from 'react'
+
+const Acerca = () => {
+    return (
+        <div>
+            <h2>Acerca</h2>
+            <p>lorem ipsolorem ipsolorem ipsolorem ipsolorem ipso</p>
+        </div>
+    )
+}
+
+export default Acerca;
